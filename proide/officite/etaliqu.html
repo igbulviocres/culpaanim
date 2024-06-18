@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard</title>
+<style>
+  .leaderboard-board {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .leaderboard-board-header {
+    background-color: #f7f7f7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .leaderboard-board-header-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .leaderboard-board-header-refresh-button {
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .leaderboard-board-body {
+    padding: 10px;
+  }
+  .leaderboard-board-body-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  .leaderboard-board-body-row:last-child {
+    border-bottom: none;
+  }
+  .leaderboard-board-body-row-rank,
+  .leaderboard-board-body-row-score {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class='leaderboard-board'>
+  <div class='leaderboard-board-header'>
+    <div class='leaderboard-board-header-title'>Leaderboard</div>
+    <div class='leaderboard-board-header-refresh'>
+      <button class='leaderboard-board-header-refresh-button'>Refresh</button>
+    </div>
+  </div>
+  <div class='leaderboard-board-body'>
+    <!-- Dynamic rows will be generated here -->
+  </div>
+</div>
+<script>
+// JavaScript code to dynamically generate leaderboard rows
+const leaderboardData = [
+  { rank: 1, name: 'Player 1', score: 100 },
+  { rank: 2, name: 'Player 2', score: 90 },
+  // Add more player data here
+];
+
+const leaderboardBody = document.querySelector('.leaderboard-board-body');
+
+leaderboardData.forEach(player => {
+  const row = document.createElement('div');
+  row.className = 'leaderboard-board-body-row';
+  row.innerHTML = `
+    <div class='leaderboard-board-body-row-rank'>${player.rank}</div>
+    <div class='leaderboard-board-body-row-name'>${player.name}</div>
+    <div class='leaderboard-board-body-row-score'>${player.score}</div>
+  `;
+  leaderboardBody.appendChild(row);
+});
+</script>
+</body>
+</html>
