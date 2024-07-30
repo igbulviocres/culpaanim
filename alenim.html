@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Description Example</title>
+</head>
+<body>
+    <h1>Workflow Description</h1>
+    <div id="workflow-container"></div>
+
+    <!-- Your script with the id "workflow-desc" -->
+    <script id="workflow-desc">
+        // JavaScript code goes here
+        document.addEventListener('DOMContentLoaded', function() {
+            const workflowContainer = document.getElementById('workflow-container');
+            const workflow = [
+                { step: 1, description: 'Start the process' },
+                { step: 2, description: 'Validate input' },
+                { step: 3, description: 'Process data' },
+                { step: 4, description: 'Output results' }
+            ];
+
+            let workflowHtml = '<ul>';
+            workflow.forEach(frame => {
+                workflowHtml += `<li>Step ${frame.step}: ${frame.description}</li>`;
+            });
+            workflowHtml += '</ul>';
+
+            workflowContainer.innerHTML = workflowHtml;
+        });
+    </script>
+</body>
+</html>
